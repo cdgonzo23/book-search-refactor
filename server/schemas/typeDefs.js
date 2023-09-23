@@ -1,26 +1,28 @@
-const typeDefs = `#graphql
+const gql = require("graphql-tag");
+
+const typeDefs = gql`
     type User {
         _id: ID
         username: String
         email: String
         password: String
+        bookCount: Int
         savedBooks: [Book]
     }
 
     type Book {
-        _id: ID
+        bookId: String
         authors: [String]
         description: String
-        bookId: String
         image: String
         link: String
         title: String
     }
 
     input BookInput {
+        bookId: String
         authors: [String]
         description: String
-        bookId: String
         image: String
         link: String
         title: String
@@ -43,4 +45,4 @@ const typeDefs = `#graphql
     }
 `
 
-module.exports = typeDefs
+module.exports = typeDefs;

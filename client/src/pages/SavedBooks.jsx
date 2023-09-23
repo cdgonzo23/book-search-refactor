@@ -6,14 +6,14 @@ import {
   Col
 } from 'react-bootstrap';
 import { QUERY_ME } from "../utils/queries";
-import { REMOVE_BOOK } from "../utils/mutations";
+import { DELETE_BOOK } from "../utils/mutations";
 import { useQuery, useMutation } from "@apollo/client";
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
   const { loading, data } = useQuery(QUERY_ME);
-  const [deleteBook] = useMutation(REMOVE_BOOK)
+  const [deleteBook] = useMutation(DELETE_BOOK)
 
   const userData = data?.me || {};
 

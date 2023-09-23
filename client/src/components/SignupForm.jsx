@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-import { useMutation } from "@apollo/client"
 import Auth from '../utils/auth';
+import { useMutation } from "@apollo/client"
 import { CREATE_USER } from '../utils/mutations';
 
 const SignupForm = () => {
@@ -28,7 +28,7 @@ const SignupForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
-
+    console.log(userFormData)
     try {
       // const response = await createUser(userFormData);
       const { data } = await createUser({ variables: { ...userFormData }});

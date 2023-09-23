@@ -6,9 +6,9 @@ const resolvers = {
     Query: {
         me: async (parent, args, context) => {
             if (context.user) {
-                return await User.findOne({ _id: context.user_id });
+                return await User.findOne({ _id: context.user_id }).select('-__v -password');
             }
-            throw AuthenticationError;
+            throw new AuthenticationError;
         }
     },
     Mutation: {
