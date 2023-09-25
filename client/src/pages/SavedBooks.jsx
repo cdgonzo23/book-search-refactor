@@ -16,6 +16,7 @@ const SavedBooks = () => {
   const [deleteBook] = useMutation(DELETE_BOOK)
 
   const userData = data?.me || {};
+  console.log(userData)
 
   if (loading) {
     return <div>Loading...</div>;

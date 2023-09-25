@@ -1,4 +1,3 @@
-const { GraphQLError } = require('graphql');
 const { User } = require('../models')
 const { signToken, AuthenticationError } = require ('../utils/auth')
 
@@ -8,7 +7,7 @@ const resolvers = {
             if (context.user) {
                 return await User.findOne({ _id: context.user_id }).select('-__v -password');
             }
-            throw new AuthenticationError;
+            throw AuthenticationError;
         }
     },
     Mutation: {
