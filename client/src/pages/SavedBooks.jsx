@@ -16,7 +16,7 @@ const SavedBooks = () => {
   const [deleteBook] = useMutation(DELETE_BOOK)
 
   const userData = data?.me || {};
-  console.log(userData)
+  // console.log(userData)
 
   if (loading) {
     return <div>Loading...</div>;
@@ -32,7 +32,7 @@ const SavedBooks = () => {
     try {
       await deleteBook({
         variables: { 
-          bookdata: {
+          bookData: {
             bookId: book.bookId,
             authors: book.authors,
             title: book.title,
@@ -76,7 +76,7 @@ const SavedBooks = () => {
                     <Card.Title>{book.title}</Card.Title>
                     <p className='small'>Authors: {book.authors}</p>
                     <Card.Text>{book.description}</Card.Text>
-                    <Button className='btn-block btn-danger' onClick={() => handleDeleteBook(book.bookId)}>
+                    <Button className='btn-block btn-danger' onClick={() => handleDeleteBook(book)}>
                       Delete this Book!
                     </Button>
                   </Card.Body>
